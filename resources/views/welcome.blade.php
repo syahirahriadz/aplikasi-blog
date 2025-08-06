@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Aplikasi Blog</title>
+        <title>Aplikasi Blog Laravel</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -20,84 +20,339 @@
         @endif
     </head>
     <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <header class="bg-white border rounded-xl mt-2 mx-2">
-            <div class="max-w-screen-xl mx-auto flex items-center justify-between py-6 px-8">
-                <!-- Logo -->
-                <a href="/" class="flex items-center">
-                    <!-- Tailwind SVG logo -->
-                    <svg class="w-10 h-10 text-indigo-600" fill="currentColor" viewBox="0 0 48 48">
-                        <path d="M11.644 18.104C13.496 13.854 17.366 10.51 22.5 10.51c7.138 0 10.305 4.457 12.768 7.543C37.748 21.02 39.458 23.164 44 23.164c3.062 0 4.68-1.184 5.662-2.513-.977 2.188-3.21 7.181-10.898 7.181-5.313 0-7.582-2.986-9.96-6.114-2.278-3.01-4.552-6.07-9.666-6.07-3.06 0-4.665 1.184-5.654 2.513.978-2.188 3.21-7.181 10.898-7.181z"/>
+        <header class="bg-white dark:bg-gray-900 w-full">
+            <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+                <div class="flex h-16 items-center justify-between">
+                <div class="md:flex md:items-center md:gap-12">
+                    <a class="block text-teal-600 dark:text-teal-600" href="#">
+                    <span class="sr-only">Home</span>
+                    <svg class="h-8" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                        d="M0.41 10.3847C1.14777 7.4194 2.85643 4.7861 5.2639 2.90424C7.6714 1.02234 10.6393 0 13.695 0C16.7507 0 19.7186 1.02234 22.1261 2.90424C24.5336 4.7861 26.2422 7.4194 26.98 10.3847H25.78C23.7557 10.3549 21.7729 10.9599 20.11 12.1147C20.014 12.1842 19.9138 12.2477 19.81 12.3047H19.67C19.5662 12.2477 19.466 12.1842 19.37 12.1147C17.6924 10.9866 15.7166 10.3841 13.695 10.3841C11.6734 10.3841 9.6976 10.9866 8.02 12.1147C7.924 12.1842 7.8238 12.2477 7.72 12.3047H7.58C7.4762 12.2477 7.376 12.1842 7.28 12.1147C5.6171 10.9599 3.6343 10.3549 1.61 10.3847H0.41ZM23.62 16.6547C24.236 16.175 24.9995 15.924 25.78 15.9447H27.39V12.7347H25.78C24.4052 12.7181 23.0619 13.146 21.95 13.9547C21.3243 14.416 20.5674 14.6649 19.79 14.6649C19.0126 14.6649 18.2557 14.416 17.63 13.9547C16.4899 13.1611 15.1341 12.7356 13.745 12.7356C12.3559 12.7356 11.0001 13.1611 9.86 13.9547C9.2343 14.416 8.4774 14.6649 7.7 14.6649C6.9226 14.6649 6.1657 14.416 5.54 13.9547C4.4144 13.1356 3.0518 12.7072 1.66 12.7347H0V15.9447H1.61C2.39051 15.924 3.154 16.175 3.77 16.6547C4.908 17.4489 6.2623 17.8747 7.65 17.8747C9.0377 17.8747 10.392 17.4489 11.53 16.6547C12.1468 16.1765 12.9097 15.9257 13.69 15.9447C14.4708 15.9223 15.2348 16.1735 15.85 16.6547C16.9901 17.4484 18.3459 17.8738 19.735 17.8738C21.1241 17.8738 22.4799 17.4484 23.62 16.6547ZM23.62 22.3947C24.236 21.915 24.9995 21.664 25.78 21.6847H27.39V18.4747H25.78C24.4052 18.4581 23.0619 18.886 21.95 19.6947C21.3243 20.156 20.5674 20.4049 19.79 20.4049C19.0126 20.4049 18.2557 20.156 17.63 19.6947C16.4899 18.9011 15.1341 18.4757 13.745 18.4757C12.3559 18.4757 11.0001 18.9011 9.86 19.6947C9.2343 20.156 8.4774 20.4049 7.7 20.4049C6.9226 20.4049 6.1657 20.156 5.54 19.6947C4.4144 18.8757 3.0518 18.4472 1.66 18.4747H0V21.6847H1.61C2.39051 21.664 3.154 21.915 3.77 22.3947C4.908 23.1889 6.2623 23.6147 7.65 23.6147C9.0377 23.6147 10.392 23.1889 11.53 22.3947C12.1468 21.9165 12.9097 21.6657 13.69 21.6847C14.4708 21.6623 15.2348 21.9135 15.85 22.3947C16.9901 23.1884 18.3459 23.6138 19.735 23.6138C21.1241 23.6138 22.4799 23.1884 23.62 22.3947Z"
+                        fill="currentColor"
+                        />
                     </svg>
-                </a>
-                <!-- Navigation -->
-                <nav class="flex-1 flex justify-center space-x-12">
-                <a href="#" class="text-lg font-semibold text-gray-900 hover:text-indigo-600">Product</a>
-                <a href="#" class="text-lg font-semibold text-gray-900 hover:text-indigo-600">Features</a>
-                <a href="#" class="text-lg font-semibold text-gray-900 hover:text-indigo-600">Marketplace</a>
-                <a href="#" class="text-lg font-semibold text-gray-900 hover:text-indigo-600">Company</a>
-                </nav>
-                <!-- Auth buttons -->
-                <div class="flex items-center space-x-4">
-                    <a href="#" class="text-lg font-semibold text-gray-900 hover:text-indigo-600">Log in</a>
-                    <a href="#" class="bg-indigo-600 text-white text-lg font-semibold rounded-xl px-6 py-2 hover:bg-indigo-700 focus:outline-none transition">Sign up</a>
+                    </a>
+                </div>
+
+                <div class="hidden md:block">
+                    <nav aria-label="Global">
+                    <ul class="flex items-center gap-6 text-sm">
+                        <li>
+                        <a
+                            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                            href="#"
+                        >
+                            About
+                        </a>
+                        </li>
+
+                        <li>
+                        <a
+                            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                            href="#"
+                        >
+                            Services
+                        </a>
+                        </li>
+
+                        <li>
+                        <a
+                            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                            href="#"
+                        >
+                            Projects
+                        </a>
+                        </li>
+
+                        <li>
+                        <a
+                            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                            href="#"
+                        >
+                            Blog
+                        </a>
+                        </li>
+                    </ul>
+                    </nav>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="sm:flex sm:gap-4">
+                    <a
+                        class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm dark:hover:bg-teal-500"
+                        href="#"
+                    >
+                        Login
+                    </a>
+
+                    <div class="hidden sm:flex">
+                        <a
+                        class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+                        href="#"
+                        >
+                        Register
+                        </a>
+                    </div>
+                    </div>
+
+                    <div class="block md:hidden">
+                    <button
+                        class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+                    >
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    </div>
+                </div>
                 </div>
             </div>
         </header>
-        <section class="bg-white dark:bg-gray-900">
-            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-                <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
-                    <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Aplikasi Blog</h2>
-                    <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
+        <div class="bg-white py-24 sm:py-32 w-full">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl lg:mx-0">
+                <h2 class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">Dari blog</h2>
+                <p class="mt-2 text-lg/8 text-gray-600">Belajar pengaturcaraan Laravel.</p>
                 </div>
-                <div class="grid gap-8 lg:grid-cols-2">
-                    <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                        <div class="flex justify-between items-center mb-5 text-gray-500">
-                            <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-                                <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
-                                Tutorial
-                            </span>
-                            <span class="text-sm">14 days ago</span>
-                        </div>
-                        <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="#">How to quickly deploy a static website</a></h2>
-                        <p class="mb-5 font-light text-gray-500 dark:text-gray-400">Static websites are now used to bootstrap lots of websites and are becoming the basis for a variety of tools that even influence both web designers and developers influence both web designers and developers.</p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center space-x-4">
-                                <img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Leos avatar" />
-                                <span class="font-medium dark:text-white">
-                                    Jese Leos
-                                </span>
-                            </div>
-                            <a href="#" class="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
-                                Read more
-                                <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                            </a>
-                        </div>
-                    </article>
-                    <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                        <div class="flex justify-between items-center mb-5 text-gray-500">
-                            <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-                                <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"></path><path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path></svg>
-                                Article
-                            </span>
-                            <span class="text-sm">14 days ago</span>
-                        </div>
-                        <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="#">Our first project with React</a></h2>
-                        <p class="mb-5 font-light text-gray-500 dark:text-gray-400">Static websites are now used to bootstrap lots of websites and are becoming the basis for a variety of tools that even influence both web designers and developers influence both web designers and developers.</p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center space-x-4">
-                                <img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="Bonnie Green avatar" />
-                                <span class="font-medium dark:text-white">
-                                    Bonnie Green
-                                </span>
-                            </div>
-                            <a href="#" class="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
-                                Read more
-                                <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                            </a>
-                        </div>
-                    </article>
+                <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                <article class="flex max-w-xl flex-col items-start justify-between">
+                    <div class="flex items-center gap-x-4 text-xs">
+                    <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+                    <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+                    </div>
+                    <div class="group relative grow">
+                    <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                        <a href="#">
+                        <span class="absolute inset-0"></span>
+                        Boost your conversion rate
+                        </a>
+                    </h3>
+                    <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+                    </div>
+                    <div class="relative mt-8 flex items-center gap-x-4 justify-self-end">
+                    <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50" />
+                    <div class="text-sm/6">
+                        <p class="font-semibold text-gray-900">
+                        <a href="#">
+                            <span class="absolute inset-0"></span>
+                            Michael Foster
+                        </a>
+                        </p>
+                        <p class="text-gray-600">Co-Founder / CTO</p>
+                    </div>
+                    </div>
+                </article>
+                <article class="flex max-w-xl flex-col items-start justify-between">
+                    <div class="flex items-center gap-x-4 text-xs">
+                    <time datetime="2020-03-10" class="text-gray-500">Mar 10, 2020</time>
+                    <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Sales</a>
+                    </div>
+                    <div class="group relative grow">
+                    <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                        <a href="#">
+                        <span class="absolute inset-0"></span>
+                        How to use search engine optimization to drive sales
+                        </a>
+                    </h3>
+                    <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">Optio cum necessitatibus dolor voluptatum provident commodi et. Qui aperiam fugiat nemo cumque.</p>
+                    </div>
+                    <div class="relative mt-8 flex items-center gap-x-4 justify-self-end">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50" />
+                    <div class="text-sm/6">
+                        <p class="font-semibold text-gray-900">
+                        <a href="#">
+                            <span class="absolute inset-0"></span>
+                            Lindsay Walton
+                        </a>
+                        </p>
+                        <p class="text-gray-600">Front-end Developer</p>
+                    </div>
+                    </div>
+                </article>
+                <article class="flex max-w-xl flex-col items-start justify-between">
+                    <div class="flex items-center gap-x-4 text-xs">
+                    <time datetime="2020-02-12" class="text-gray-500">Feb 12, 2020</time>
+                    <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Business</a>
+                    </div>
+                    <div class="group relative grow">
+                    <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                        <a href="#">
+                        <span class="absolute inset-0"></span>
+                        Improve your customer experience
+                        </a>
+                    </h3>
+                    <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">Cupiditate maiores ullam eveniet adipisci in doloribus nulla minus. Voluptas iusto libero adipisci rem et corporis. Nostrud sint anim sunt aliqua. Nulla eu labore irure incididunt velit cillum quis magna dolore.</p>
+                    </div>
+                    <div class="relative mt-8 flex items-center gap-x-4 justify-self-end">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50" />
+                    <div class="text-sm/6">
+                        <p class="font-semibold text-gray-900">
+                        <a href="#">
+                            <span class="absolute inset-0"></span>
+                            Tom Cook
+                        </a>
+                        </p>
+                        <p class="text-gray-600">Director of Product</p>
+                    </div>
+                    </div>
+                </article>
                 </div>
             </div>
-        </section>
+        </div>
+
+        @if (Route::has('login'))
+            <div class="h-14.5 hidden lg:block"></div>
+        @endif
+
+        <footer class="bg-white w-full">
+            <div class="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
+                <div class="sm:flex sm:items-center sm:justify-between">
+                    <div class="text-teal-600 flex items-center">
+                        <svg class="h-8" viewBox="0 0 118 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.41 10.3847C1.14777 7.4194 2.85643 4.7861 5.2639 2.90424C7.6714 1.02234 10.6393 0 13.695 0C16.7507 0 19.7186 1.02234 22.1261 2.90424C24.5336 4.7861 26.2422 7.4194 26.98 10.3847H25.78C23.7557 10.3549 21.7729 10.9599 20.11 12.1147C20.014 12.1842 19.9138 12.2477 19.81 12.3047H19.67C19.5662 12.2477 19.466 12.1842 19.37 12.1147C17.6924 10.9866 15.7166 10.3841 13.695 10.3841C11.6734 10.3841 9.6976 10.9866 8.02 12.1147C7.924 12.1842 7.8238 12.2477 7.72 12.3047H7.58C7.4762 12.2477 7.376 12.1842 7.28 12.1147C5.6171 10.9599 3.6343 10.3549 1.61 10.3847H0.41ZM23.62 16.6547C24.236 16.175 24.9995 15.924 25.78 15.9447H27.39V12.7347H25.78C24.4052 12.7181 23.0619 13.146 21.95 13.9547C21.3243 14.416 20.5674 14.6649 19.79 14.6649C19.0126 14.6649 18.2557 14.416 17.63 13.9547C16.4899 13.1611 15.1341 12.7356 13.745 12.7356C12.3559 12.7356 11.0001 13.1611 9.86 13.9547C9.2343 14.416 8.4774 14.6649 7.7 14.6649C6.9226 14.6649 6.1657 14.416 5.54 13.9547C4.4144 13.1356 3.0518 12.7072 1.66 12.7347H0V15.9447H1.61C2.39051 15.924 3.154 16.175 3.77 16.6547C4.908 17.4489 6.2623 17.8747 7.65 17.8747C9.0377 17.8747 10.392 17.4489 11.53 16.6547C12.1468 16.1765 12.9097 15.9257 13.69 15.9447C14.4708 15.9223 15.2348 16.1735 15.85 16.6547C16.9901 17.4484 18.3459 17.8738 19.735 17.8738C21.1241 17.8738 22.4799 17.4484 23.62 16.6547ZM23.62 22.3947C24.236 21.915 24.9995 21.664 25.78 21.6847H27.39V18.4747H25.78C24.4052 18.4581 23.0619 18.886 21.95 19.6947C21.3243 20.156 20.5674 20.4049 19.79 20.4049C19.0126 20.4049 18.2557 20.156 17.63 19.6947C16.4899 18.9011 15.1341 18.4757 13.745 18.4757C12.3559 18.4757 11.0001 18.9011 9.86 19.6947C9.2343 20.156 8.4774 20.4049 7.7 20.4049C6.9226 20.4049 6.1657 20.156 5.54 19.6947C4.4144 18.8757 3.0518 18.4472 1.66 18.4747H0V21.6847H1.61C2.39051 21.664 3.154 21.915 3.77 22.3947C4.908 23.1889 6.2623 23.6147 7.65 23.6147C9.0377 23.6147 10.392 23.1889 11.53 22.3947C12.1468 21.9165 12.9097 21.6657 13.69 21.6847C14.4708 21.6623 15.2348 21.9135 15.85 22.3947C16.9901 23.1884 18.3459 23.6138 19.735 23.6138C21.1241 23.6138 22.4799 23.1884 23.62 22.3947Z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                        <span class="text-2xl font-bold text-teal-600 ml-5">Aplikasi Blog</span>
+                    </div>
+
+                <ul class="mt-8 flex justify-start gap-6 sm:mt-0 sm:justify-end">
+                    <li>
+                    <a
+                        href="#"
+                        rel="noreferrer"
+                        target="_blank"
+                        class="text-gray-700 transition hover:opacity-75"
+                    >
+                        <span class="sr-only">Facebook</span>
+
+                        <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            fill-rule="evenodd"
+                            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                            clip-rule="evenodd"
+                        />
+                        </svg>
+                    </a>
+                    </li>
+
+                    <li>
+                    <a
+                        href="#"
+                        rel="noreferrer"
+                        target="_blank"
+                        class="text-gray-700 transition hover:opacity-75"
+                    >
+                        <span class="sr-only">Instagram</span>
+
+                        <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            fill-rule="evenodd"
+                            d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                            clip-rule="evenodd"
+                        />
+                        </svg>
+                    </a>
+                    </li>
+
+                    <li>
+                    <a
+                        href="#"
+                        rel="noreferrer"
+                        target="_blank"
+                        class="text-gray-700 transition hover:opacity-75"
+                    >
+                        <span class="sr-only">Twitter</span>
+
+                        <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                        />
+                        </svg>
+                    </a>
+                    </li>
+
+                    <li>
+                    <a
+                        href="#"
+                        rel="noreferrer"
+                        target="_blank"
+                        class="text-gray-700 transition hover:opacity-75"
+                    >
+                        <span class="sr-only">GitHub</span>
+
+                        <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            fill-rule="evenodd"
+                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                            clip-rule="evenodd"
+                        />
+                        </svg>
+                    </a>
+                    </li>
+
+                </ul>
+                </div>
+
+                <div
+                class="grid grid-cols-1 gap-8 border-t border-gray-100 pt-8 sm:grid-cols-2 lg:grid-cols-4 lg:pt-16"
+                >
+                <div>
+                    <p class="font-medium text-gray-900">Services</p>
+
+                    <ul class="mt-6 space-y-4 text-sm">
+                    <li>
+                        <a href="#" class="text-gray-700 transition hover:opacity-75"> 1on1 Coaching </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="text-gray-700 transition hover:opacity-75"> Company Review </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="text-gray-700 transition hover:opacity-75"> HR Consulting </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="text-gray-700 transition hover:opacity-75"> SEO Optimisation </a>
+                    </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p class="font-medium text-gray-900">Helpful Links</p>
+
+                    <ul class="mt-6 space-y-4 text-sm">
+                    <li>
+                        <a href="#" class="text-gray-700 transition hover:opacity-75"> Contact </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="text-gray-700 transition hover:opacity-75"> FAQs </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="text-gray-700 transition hover:opacity-75"> Live Chat </a>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+
+                <p class="text-xs text-gray-500">&copy; 2025. Aplikasi Blog. All rights reserved.</p>
+            </div>
+        </footer>
     </body>
 </html>
