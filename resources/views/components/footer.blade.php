@@ -93,27 +93,19 @@
         class="grid grid-cols-1 gap-8 border-t border-gray-100 pt-8 sm:grid-cols-2 lg:grid-cols-4 lg:pt-16"
         >
         <div>
-            <p class="font-medium text-gray-900">Services</p>
+            <p class="font-medium text-gray-900">Page List</p>
 
             <ul class="mt-6 space-y-4 text-sm">
             <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> 1on1 Coaching </a>
+                <a href="{{route('welcome')}}" class="text-gray-700 transition hover:opacity-75"> Laman Utama </a>
             </li>
 
             <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> Company Review </a>
+                <a href="{{route('about')}}" class="text-gray-700 transition hover:opacity-75"> About </a>
             </li>
 
             <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
-            </li>
-
-            <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> HR Consulting </a>
-            </li>
-
-            <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> SEO Optimisation </a>
+                <a href="{{ route('posts') }}" class="text-gray-700 transition hover:opacity-75"> Post </a>
             </li>
             </ul>
         </div>
@@ -123,15 +115,7 @@
 
             <ul class="mt-6 space-y-4 text-sm">
             <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> Contact </a>
-            </li>
-
-            <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> FAQs </a>
-            </li>
-
-            <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75"> Live Chat </a>
+                <a href="{{route('contact')}}" class="text-gray-700 transition hover:opacity-75"> Contact </a>
             </li>
             </ul>
         </div>
