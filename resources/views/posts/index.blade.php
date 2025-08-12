@@ -10,7 +10,10 @@
     <!-- Card Blog -->
     <div class="bg-white max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto w-auto">
     <!-- Grid -->
-    <div class="grid lg:grid-cols-2 lg:gap-y-16 gap-10">
+    <div class="grid lg:grid-cols-1 lg:gap-y-16 gap-10">
+
+        @foreach ($posts as $post)
+
         <!-- Card -->
         <a class="group block rounded-xl overflow-hidden focus:outline-hidden" href="#">
         <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
@@ -20,10 +23,10 @@
 
             <div class="grow">
             <h3 class="text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-neutral-300 dark:group-hover:text-white">
-                Studio by Preline
+                {{ $post['title'] }}
             </h3>
             <p class="mt-3 text-gray-600 dark:text-neutral-400">
-                Produce professional, reliable streams easily leveraging Preline's innovative broadcast studio
+                {{ $post['content'] }}
             </p>
             <p class="mt-4 inline-flex items-center gap-x-1 text-sm text-teal-600 decoration-2 group-hover:underline group-focus:underline font-medium dark:text-blue-500">
                 Read more
@@ -33,6 +36,8 @@
         </div>
         </a>
         <!-- End Card -->
+
+        @endforeach
 
         <!-- Card -->
         <a class="group block rounded-xl overflow-hidden focus:outline-hidden" href="#">

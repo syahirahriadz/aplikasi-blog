@@ -105,7 +105,7 @@
             </li>
 
             <li>
-                <a href="{{ route('posts') }}" class="text-gray-700 transition hover:opacity-75"> Post </a>
+                <a href="{{ route('posts.index') }}" class="text-gray-700 transition hover:opacity-75"> Post </a>
             </li>
             </ul>
         </div>
