@@ -15,27 +15,48 @@ class PostSeeder extends Seeder
     {
         DB::table('posts')->insert([
             [
-                'title' => 'Studio by Preline',
-                'content' => 'Produce professional, reliable streams easily leveraging Prelines innovative broadcast studio',
-                'author' => 'a',
-                'author_info' => 'b',
-                'image' => 'https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&q=80',
-                'category' => 'c',
+                'title' => 'Asas Laravel untuk Pemula',
+                'content' => 'Pengaturcaraan asas adalah langkah pertama dalam dunia teknologi. Dalam',
+                'author' => 'Aida Syahirah',
+                'author_info' => 'Pengajar Pengaturcaraan',
+                'image' => 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+                'category' => 'Pembangunan Web',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'title' => 'Studio by Preline2',
-                'content' => 'Produce professional, reliable streams easily leveraging Prelines innovative broadcast studio',
-                'author' => 'a2',
-                'author_info' => 'b2',
-                'image' => 'https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&q=80',
-                'category' => 'c2',
+                'title' => 'Membangun Aplikasi Web dengan Laravel',
+                'content' => 'Laravel adalah framework PHP yang popular untuk membangunkan aplikasi web.',
+                'created_at' => '2024-12-05',
+                'author' => 'Mohamad Faiz',
+                'author_info' => 'Pembangunan Backend',
+                'image' => 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+                'category' => 'Pembangunan Web',
                 'created_at' => now(),
                 'updated_at' => now(),
-
             ],
-
+            [
+                'title' => 'Pengaturcaraan Berorientasikan Objek dengan PHP',
+                'content' => 'Pengaturcaraan berorientasikan objek (OOP) adalah paradigma pengaturcaraan yang penting.',
+                'created_at' => '2024-12-10',
+                'author' => 'Muhammad Norsyahrin Seth',
+                'author_info' => 'Pengajar Laravel',
+                'image' => 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+                'category' => 'Pengaturcaraan',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'Pengaturcaraan Berorientasikan Objek dengan PHP',
+                'content' => 'Pengaturcaraan berorientasikan objek (OOP) adalah paradigma pengaturcaraan yang penting.',
+                'created_at' => '2024-12-10',
+                'author' => 'Aminah Siti',
+                'author_info' => 'Pengajar Pengaturcaraan',
+                'image' => 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+                'category' => 'Pengaturcaraan',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

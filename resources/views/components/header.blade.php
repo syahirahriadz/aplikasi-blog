@@ -15,10 +15,19 @@
 
         <div class="hidden md:block">
             <nav aria-label="Global">
-            <ul class="flex items-center gap-6 text-sm">
+            <ul class="flex items-center gap-6 text-base">
                 <li>
                 <a
-                    class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                    class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75 {{ request()->routeIs('welcome') ? 'text-red-900 font-bold' : '' }}"
+                    href="{{route('welcome')}}"
+                >
+                    Laman Utama
+                </a>
+                </li>
+
+                <li>
+                <a
+                    class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75 {{ request()->routeIs('about') ? 'text-red-900 font-bold' : '' }}"
                     href="{{route('about')}}"
                 >
                     About
@@ -27,7 +36,7 @@
 
                 <li>
                 <a
-                    class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                    class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75 {{ request()->routeIs('posts.index') ? 'text-red-900 font-bold' : '' }}"
                     href="{{ route('posts.index') }}"
                 >
                     Post
@@ -36,7 +45,7 @@
 
                 <li>
                 <a
-                    class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                    class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75 {{ request()->routeIs('contact') ? 'text-red-900 font-bold' : '' }}"
                     href="{{route('contact')}}"
                 >
                     Contact

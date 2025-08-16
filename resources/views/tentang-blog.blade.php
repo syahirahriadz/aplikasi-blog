@@ -1,15 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="bg-white mb-16 text-center w-full">
-        <h1 class="text-3xl font-light tracking-wide text-gray-800 mb-4">Tentang Blog</h1>
-        <p class="text-gray-500 text-sm">
-            Platform Pembelajaran Pengaturcaraan</p>
-    </div>
-
-    <div class="bg-white mb-12 w-full">
-        <h2 class="text-2xl font-light text-gray-800 mb-2">Tentang Kami</h2>
-        <p class="text-gray-600 text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="bg-white w-full">
+        <div class="bg-white max-w-6xl mx-auto px-6 py-30 w-full">
+            <h1 class="text-4xl font-bold mb-7">Tentang Aplikasi Blog</h1>
+            <p class="text-gray-700 mb-4">Aplikasi Blog adalah platform pembelajaran pengaturcaraan yang direka untuk membantu anda membangunkan kemahiran teknologi anda. Dengan panduan komprehensif dan sumber yang mudah diakses, kami menyediakan pengalaman pembelajaran yang unik dan berkesan.</p>
+            <p class="text-gray-700 mb-4">Kami menawarkan kursus dalam Laravel, PHP, dan teknologi web moden lain, dengan fokus pada praktikal dan aplikasi dunia sebenar. Sertai komuniti kami hari ini dan tingkatkan kemahiran pengaturcaraan anda!</p>
+        </div>
     </div>
 @endsection

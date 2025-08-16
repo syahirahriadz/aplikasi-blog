@@ -93,19 +93,19 @@
         class="grid grid-cols-1 gap-8 border-t border-gray-100 pt-8 sm:grid-cols-2 lg:grid-cols-4 lg:pt-16"
         >
         <div>
-            <p class="font-medium text-gray-900">Page List</p>
+            <p class="font-medium text-gray-900">Pautan Pantas</p>
 
             <ul class="mt-6 space-y-4 text-sm">
             <li>
-                <a href="{{route('welcome')}}" class="text-gray-700 transition hover:opacity-75"> Laman Utama </a>
+                <a href="{{route('welcome')}}" class="text-gray-700 transition hover:opacity-75 {{ request()->routeIs('welcome') ? 'text-red-900 font-bold' : '' }}"> Laman Utama </a>
             </li>
 
             <li>
-                <a href="{{route('about')}}" class="text-gray-700 transition hover:opacity-75"> About </a>
+                <a href="{{route('about')}}" class="text-gray-700 transition hover:opacity-75 {{ request()->routeIs('about') ? 'text-red-900 font-bold' : '' }}"> About </a>
             </li>
 
             <li>
-                <a href="{{ route('posts.index') }}" class="text-gray-700 transition hover:opacity-75"> Post </a>
+                <a href="{{ route('posts.index') }}" class="text-gray-700 transition hover:opacity-75 {{ request()->routeIs('posts.index') ? 'text-red-900 font-bold' : '' }}"> Post </a>
             </li>
             </ul>
         </div>
@@ -121,6 +121,6 @@
         </div>
         </div>
 
-        <p class="text-xs text-gray-500">&copy; 2025. Aplikasi Blog. All rights reserved.</p>
+        <p class="text-xs text-gray-500">&copy; 2025. Aplikasi Blog. Semua hak terpelihara.</p>
     </div>
 </footer>

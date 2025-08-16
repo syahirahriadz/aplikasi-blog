@@ -1,91 +1,80 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="bg-white py-24 sm:py-32 w-full">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto max-w-2xl lg:mx-0">
-            <h2 class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">Dari blog</h2>
-            <p class="mt-2 text-lg/8 text-gray-600">Belajar pengaturcaraan Laravel.</p>
+    <div class="bg-white w-full">
+        <div class="bg-white max-w-7xl mx-auto px-5 py-30">
+            <div class="mb-16 text-center">
+            <h1 class="text-6xl font-light tracking-wide text-gray-800 mb-4">Aplikasi Blog</h1>
+            <p class="text-gray-500 text-base">
+                Platform Pembelajaran Pengaturcaraan</p>
             </div>
-            <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            <article class="flex max-w-xl flex-col items-start justify-between">
-                <div class="flex items-center gap-x-4 text-xs">
-                <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
-                <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+
+            <div class="mb-12">
+            <h2 class="text-3xl font-light text-gray-800 mb-2">Dari Blog Kami</h2>
+            <p class="text-gray-600 text-base">
+                Belajar cara membangunkan kemahiran pengaturcaraan dan teknologi dengan panduan kami.</p>
+            </div>
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <article class="bg-gray-50 rounded-lg p-6 hover:shadow-sm transition-shadow duration-200">
+                <div class="flex items-center gap-x-3 text-xs mb-4">
+                <time datetime="2024-12-15" class="text-gray-400">15 Dis 2024</time>
+                <span class="px-2 py-1 bg-blue-50 text-blue-600 rounded text-xs">Pembangunan Web</span>
                 </div>
-                <div class="group relative grow">
-                <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
-                    <a href="#">
-                    <span class="absolute inset-0"></span>
-                    Boost your conversion rate
+                <div class="mb-6">
+                <h3 class="text-lg font-medium text-gray-900 mb-3 leading-snug">
+                    <a href="#" class="hover:text-gray-600 transition-colors">
+                    Asas Laravel untuk Pemula
                     </a>
                 </h3>
-                <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+                <p class="text-sm text-gray-600 leading-relaxed">Pelajari asas-asas Laravel dari awal hingga mahir. Panduan lengkap untuk memulakan projek pertama anda dengan kerangka kerja PHP yang popular ini. Termasuk tips dan trik untuk pembangunan yang berkesan.</p>
                 </div>
-                <div class="relative mt-8 flex items-center gap-x-4 justify-self-end">
-                <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50" />
-                <div class="text-sm/6">
-                    <p class="font-semibold text-gray-900">
-                    <a href="#">
-                        <span class="absolute inset-0"></span>
-                        Michael Foster
-                    </a>
-                    </p>
-                    <p class="text-gray-600">Co-Founder / CTO</p>
+                <div class="flex items-center gap-x-3 pt-4 border-t border-gray-100">
+                <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="w-8 h-8 rounded-full" />
+                <div class="text-xs">
+                    <p class="font-medium text-gray-900">Ahmad Rahman</p>
+                    <p class="text-gray-500">Pengajar Laravel</p>
                 </div>
                 </div>
             </article>
-            <article class="flex max-w-xl flex-col items-start justify-between">
-                <div class="flex items-center gap-x-4 text-xs">
-                <time datetime="2020-03-10" class="text-gray-500">Mar 10, 2020</time>
-                <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Sales</a>
+            <article class="bg-gray-50 rounded-lg p-6 hover:shadow-sm transition-shadow duration-200">
+                <div class="flex items-center gap-x-3 text-xs mb-4">
+                <time datetime="2024-12-10" class="text-gray-400">10 Dis 2024</time>
+                <span class="px-2 py-1 bg-green-50 text-green-600 rounded text-xs">Pangkalan Data</span>
                 </div>
-                <div class="group relative grow">
-                <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
-                    <a href="#">
-                    <span class="absolute inset-0"></span>
-                    How to use search engine optimization to drive sales
+                <div class="mb-6">
+                <h3 class="text-lg font-medium text-gray-900 mb-3 leading-snug">
+                    <a href="#" class="hover:text-gray-600 transition-colors">
+                    Menguasai Eloquent ORM dalam Laravel
                     </a>
                 </h3>
-                <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">Optio cum necessitatibus dolor voluptatum provident commodi et. Qui aperiam fugiat nemo cumque.</p>
+                <p class="text-sm text-gray-600 leading-relaxed">Panduan komprehensif untuk menggunakan Eloquent ORM dengan berkesan. Pelajari relationship, query builder, dan tips optimisasi untuk aplikasi yang lebih pantas.</p>
                 </div>
-                <div class="relative mt-8 flex items-center gap-x-4 justify-self-end">
-                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50" />
-                <div class="text-sm/6">
-                    <p class="font-semibold text-gray-900">
-                    <a href="#">
-                        <span class="absolute inset-0"></span>
-                        Lindsay Walton
-                    </a>
-                    </p>
-                    <p class="text-gray-600">Front-end Developer</p>
+                <div class="flex items-center gap-x-3 pt-4 border-t border-gray-100">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="w-8 h-8 rounded-full" />
+                <div class="text-xs">
+                    <p class="font-medium text-gray-900">Siti Nurhaliza</p>
+                    <p class="text-gray-500">Pembangun Backend</p>
                 </div>
                 </div>
             </article>
-            <article class="flex max-w-xl flex-col items-start justify-between">
-                <div class="flex items-center gap-x-4 text-xs">
-                <time datetime="2020-02-12" class="text-gray-500">Feb 12, 2020</time>
-                <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Business</a>
+            <article class="bg-gray-50 rounded-lg p-6 hover:shadow-sm transition-shadow duration-200">
+                <div class="flex items-center gap-x-3 text-xs mb-4">
+                <time datetime="2024-12-05" class="text-gray-400">5 Dis 2024</time>
+                <span class="px-2 py-1 bg-purple-50 text-purple-600 rounded text-xs">Frontend</span>
                 </div>
-                <div class="group relative grow">
-                <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
-                    <a href="#">
-                    <span class="absolute inset-0"></span>
-                    Improve your customer experience
+                <div class="mb-6">
+                <h3 class="text-lg font-medium text-gray-900 mb-3 leading-snug">
+                    <a href="#" class="hover:text-gray-600 transition-colors">
+                    Reka Bentuk Responsif dengan Tailwind CSS
                     </a>
                 </h3>
-                <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">Cupiditate maiores ullam eveniet adipisci in doloribus nulla minus. Voluptas iusto libero adipisci rem et corporis. Nostrud sint anim sunt aliqua. Nulla eu labore irure incididunt velit cillum quis magna dolore.</p>
+                <p class="text-sm text-gray-600 leading-relaxed">Pelajari cara mencipta antara muka pengguna yang menarik dan responsif menggunakan Tailwind CSS. Tips dan teknik terkini untuk reka bentuk web moden yang mesra mudah alih.</p>
                 </div>
-                <div class="relative mt-8 flex items-center gap-x-4 justify-self-end">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50" />
-                <div class="text-sm/6">
-                    <p class="font-semibold text-gray-900">
-                    <a href="#">
-                        <span class="absolute inset-0"></span>
-                        Tom Cook
-                    </a>
-                    </p>
-                    <p class="text-gray-600">Director of Product</p>
+                <div class="flex items-center gap-x-3 pt-4 border-t border-gray-100">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="w-8 h-8 rounded-full" />
+                <div class="text-xs">
+                    <p class="font-medium text-gray-900">Farid Azman</p>
+                    <p class="text-gray-500">Pereka UI/UX</p>
                 </div>
                 </div>
             </article>

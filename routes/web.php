@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,3 +22,8 @@ Route::get('posts', [
     \App\Http\Controllers\PostController::class,
     'index'
 ])->name('posts.index');
+
+Route::get('/posts/{id}', [
+    \App\Http\Controllers\PostController::class,
+    'show'
+])->name('posts.show');
