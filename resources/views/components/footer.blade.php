@@ -1,5 +1,5 @@
 <footer class="bg-white w-full">
-    <div class="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
+    <div class="mx-auto max-w-screen-xl space-y-8 px-4 py-10 sm:px-6 lg:space-y-16 lg:px-8">
         <div class="sm:flex sm:items-center sm:justify-between">
             <div class="text-teal-600 flex items-center">
                 <svg class="h-8" viewBox="0 0 118 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,21 +101,21 @@
             </li>
 
             <li>
-                <a href="{{route('about')}}" class="text-gray-700 transition hover:opacity-75 {{ request()->routeIs('about') ? 'text-red-900 font-bold' : '' }}"> About </a>
+                <a href="{{route('about')}}" class="text-gray-700 transition hover:opacity-75 {{ request()->routeIs('about') ? 'text-red-900 font-bold' : '' }}"> Tentang Blog </a>
             </li>
 
             <li>
-                <a href="{{ route('posts.index') }}" class="text-gray-700 transition hover:opacity-75 {{ request()->routeIs('posts.index') ? 'text-red-900 font-bold' : '' }}"> Post </a>
+                <a href="{{ route('posts.index') }}" class="text-gray-700 transition hover:opacity-75 {{ request()->routeIs('posts.index') ? 'text-red-900 font-bold' : '' }}"> Blog Posts </a>
             </li>
             </ul>
         </div>
 
         <div>
-            <p class="font-medium text-gray-900">Helpful Links</p>
+            <p class="font-medium text-gray-900">Pautan Berguna</p>
 
             <ul class="mt-6 space-y-4 text-sm">
             <li>
-                <a href="{{route('contact')}}" class="text-gray-700 transition hover:opacity-75"> Contact </a>
+                <a href="{{route('contact')}}" class="text-gray-700 transition hover:opacity-75"> Hubungi </a>
             </li>
             </ul>
         </div>

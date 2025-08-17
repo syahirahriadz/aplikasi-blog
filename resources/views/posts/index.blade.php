@@ -18,7 +18,8 @@
                     </div>
                     <div class="mb-6">
                     <h3 class="text-lg font-medium text-gray-900 mb-3 leading-snug">
-                        <a href="{{ route('posts.show', $post->id) }}" class="hover:text-gray-600 transition-colors">
+                        {{-- <a href="{{ route('posts.show', $post->id) }}" class="hover:text-gray-600 transition-colors"> --}}
+                        <a href="{{ route('posts.show', ['slug'=>$post['slug']]) }}" class="hover:text-gray-600 transition-colors">
                             {{ $post['title'] }}
                         </a>
                     </h3>

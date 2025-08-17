@@ -30,7 +30,7 @@
                     class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75 {{ request()->routeIs('about') ? 'text-red-900 font-bold' : '' }}"
                     href="{{route('about')}}"
                 >
-                    About
+                    Tentang Blog
                 </a>
                 </li>
 
@@ -39,7 +39,7 @@
                     class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75 {{ request()->routeIs('posts.index') ? 'text-red-900 font-bold' : '' }}"
                     href="{{ route('posts.index') }}"
                 >
-                    Post
+                    Blog Posts
                 </a>
                 </li>
 
@@ -48,7 +48,7 @@
                     class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75 {{ request()->routeIs('contact') ? 'text-red-900 font-bold' : '' }}"
                     href="{{route('contact')}}"
                 >
-                    Contact
+                    Hubungi
                 </a>
                 </li>
             </ul>
@@ -61,7 +61,7 @@
                 class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm dark:hover:bg-teal-500"
                 href="#"
             >
-                Login
+                Log Masuk
             </a>
 
             <div class="hidden sm:flex">
@@ -69,7 +69,7 @@
                 class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
                 href="#"
                 >
-                Register
+                Daftar
                 </a>
             </div>
             </div>
