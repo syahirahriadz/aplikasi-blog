@@ -57,21 +57,29 @@
 
         <div class="flex items-center gap-4">
             <div class="sm:flex sm:gap-4">
-            <a
-                class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm dark:hover:bg-teal-500"
-                href="#"
-            >
-                Log Masuk
-            </a>
+                @auth
+                    <span class="text-sm text-gray-600">Hello, {{ Auth::user()->name }}</span>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Log Keluar</button>
+                    </form>
+                @else
+                    <a
+                        class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm dark:hover:bg-teal-500"
+                        href="{{route('login')}}"
+                    >
+                        Log Masuk
+                    </a>
 
-            <div class="hidden sm:flex">
-                <a
-                class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
-                href="#"
-                >
-                Daftar
-                </a>
-            </div>
+                    <div class="hidden sm:flex">
+                        <a
+                        class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+                        href="{{route('register')}}"
+                        >
+                        Daftar
+                        </a>
+                    </div>
+                @endif
             </div>
 
             <div class="block md:hidden">

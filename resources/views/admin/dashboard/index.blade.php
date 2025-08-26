@@ -37,7 +37,7 @@
 @endpush
 
 @section('content')
-<div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+<div class="bg-white min-h-screen bg-gradient-to-br from-white-50 to-white-100 w-full">
     <div class="container mx-auto px-4 py-8">
         <!-- Header -->
         <div class="mb-8">

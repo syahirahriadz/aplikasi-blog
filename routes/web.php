@@ -6,9 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [
+    \App\Http\Controllers\HomeController::class,
+    'index'
+])->name('welcome');
 
 Route::get('/tentang-blog', [
     \App\Http\Controllers\AboutController::class,
@@ -19,6 +20,7 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+//post route
 Route::get('posts', [
     \App\Http\Controllers\PostController::class,
     'index'
@@ -65,12 +67,15 @@ Route::delete('/comments/{id}', [
     'destroy'
 ])->name('comments.destroy');
 
-Route::get('admin/dashboard', [
-    \App\Http\Controllers\DashboardController::class,
-    'index'
-])->name('admin.dashboard.index');
+//dashboard route
+Route::middleware('auth')->group(function() {
+    Route::get('admin/dashboard', [
+        \App\Http\Controllers\DashboardController::class,
+        'index'
+    ])->name('admin.dashboard.index');
+});
 
-Route::get('test', function () {
+//Route::get('test', function () {
     //ambil semua data
     // $posts = \App\Models\Post::all();
     // dd($posts);
@@ -91,4 +96,30 @@ Route::get('test', function () {
     //$posts = \App\Models\Post::select('title', 'created_at')->get();
     // dd($posts);
 
-})->name('test');
+//})->name('test');
+
+//user route
+Route::get('login', [
+    \App\Http\Controllers\AuthController::class,
+    'showLogin'
+])->name('login');
+
+Route::post('login', [
+    \App\Http\Controllers\AuthController::class,
+    'login'
+])->name('login');
+
+Route::get('register', [
+    \App\Http\Controllers\AuthController::class,
+    'showRegister'
+])->name('register');
+
+Route::post('register', [
+    \App\Http\Controllers\AuthController::class,
+    'register'
+])->name('register.post');
+
+Route::post('logout', [
+    \App\Http\Controllers\Authcontroller::class,
+    'logout'
+])->name('logout');

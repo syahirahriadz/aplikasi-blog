@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Post;
 
-class AboutController extends Controller
+class HomeController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('user')->get();
+        $posts = Post::with('user')
+        ->limit(6)
+        ->get();
         //return nama blade
-        return view('tentang-blog', [
+        return view('welcome', [
             'posts' => $posts,
         ]);
     }
-
 }
