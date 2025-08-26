@@ -5,28 +5,38 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Models\User;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::all();
+        $query = Post::with('user')->orderBy('created_at', 'desc');
+
+        //Handle search function
+        if ($request->has('search') && !empty($request->search)) {
+            $searchTerm = $request->search;
+
+            //title, content, category, user
+            $query->where(function($q) use ($searchTerm) {
+                $q->where('title', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('content', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('category', 'like', '%' . $searchTerm . '%')
+                    ->orWhereHas('user', function($q) use ($searchTerm) {
+                        $q->where('name', 'like', '%' . $searchTerm . '%');
+                    });
+            });
+        }
+
         return view('posts.index', [
-            'posts' => $posts
+            'posts' => $query->get()
         ]);
     }
 
-    // public function show($id)
-    // {
-    //     $post = Post::findOrFail($id);
-    //     return view('posts.show', [
-    //         'post' => $post
-    //     ]);
-    // }
-
     public function show($slug)
     {
-        $post = Post::where('slug', $slug)->firstOrFail();
+        //$post = Post::where('slug', $slug)->firstOrFail();
+        $post = Post::with(['user', 'comments'])->where('slug', $slug)->firstOrFail();
 
         return view('posts.show', [
             'post' => $post
@@ -34,7 +44,9 @@ class PostController extends Controller
     }
 
     public function create() {
-        return view('posts.create');
+
+        $users = User::all();
+        return view('posts.create', compact('users'));
     }
 
     public function store(Request $request) {
@@ -44,10 +56,8 @@ class PostController extends Controller
             'slug' => 'required|string|max:255',
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'author' => 'required|string|max:255',
-            'author_info' => 'nullable|string|max:255',
+            'user_id' => 'nullable|exists:users,id',
             'image' => 'nullable|string|max:255',
-            //'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category' => 'nullable|string|max:255',
         ]);
         //Store data into database.
@@ -60,35 +70,40 @@ class PostController extends Controller
     public function edit($slug) {
 
         $post = Post::where('slug', $slug)->firstOrFail();
+        $users = User::all();
 
         return view('posts.edit', [
-            'post' => $post
+            'post' => $post,
+            'users' => $users
+
         ]);
     }
 
-    public function update(Request $request, Post $post) {
+    public function update(Request $request, $slug) {
 
-        //$post = Post::where('slug', $slug)->firstOrFail();
+        //way to debug
+        //dd($slug, $request->all());
 
-        $validated = $request->validate([
-            'slug' => ['required','string','max:255', Rule::unique('posts','slug')->ignore($post->id)],
-            'title' => ['required','string','max:255'],
-            'content' => ['required','string'],
-            'author' => ['required','string','max:255'],
-            'author_info' => ['nullable','string','max:255'],
-            'image' => ['nullable','string','max:255'],
-            //'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'category' => ['nullable','string','max:255'],
+        $post = Post::where('slug', $slug)->first();
+
+        $validatedData = $request->validate([
+            'slug' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'user_id' => 'nullable|exists:users,id',
+            'image' => 'nullable|string|max:255',
+            'category' => 'nullable|string|max:255',
         ]);
 
-        $post->update($validated);
+        $post->update($validatedData);
 
-        return redirect()
-            ->route('posts.show', $post->slug)
-            ->with('success', 'Post updated successfully!');
+        return redirect()->route('posts.show', $post->slug)->with('success', 'Post updated successfully!');
     }
 
-    public function destroy() {
+    public function destroy($slug) {
+        $post = Post::where('slug', $slug)->firstOrFail();
+        $post->delete();
 
+        return redirect()->route('posts.index')->with('success', 'Post deleted successfully!');
     }
 }

@@ -7,7 +7,67 @@
             <h1 class="text-6xl font-light tracking-wide text-gray-800 mb-4">Blog Posts</h1>
             <p class="text-gray-500 text-base">
                 Platform Pembelajaran Pengaturcaraan</p>
+
+            <!-- Search component -->
+            <div class="max-w-md mx-auto mb-5 py-5">
+                <form method="GET" action="{{ route('posts.index') }}" class="relative flex gap-2">
+                    <div class="relative flex-grow">
+                        <input type="text"
+                            name="search"
+                            value="{{ request('search') }}"
+                            placeholder="Search posts..."
+                            class="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        @if(request('search'))
+                            <button type="button"
+                                    onclick="document.querySelector('input[name=search]').value=''; this.closest('form').submit();"
+                                    class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <svg class="h-5 w-5 text-gray-400 hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        @endif
+                    </div>
+                    <button type="submit"
+                    class="inline-flex items-center px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium text-sm rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            <!-- End -->
+
+             <!-- Create Blog Button -->
+            <div class="flex justify-center py-2">
+                <a href="{{ route('posts.create') }}"
+                class="inline-flex items-center px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium text-sm rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                    </svg>
+                    Create New Post
+                </a>
+            </div>
         </div>
+
+        <!-- Search Results Info -->
+        @if(request('search'))
+            <div class="mb-6 text-center">
+                <p class="text-gray-600 text-sm">
+                    Showing results for "<span class="font-medium">{{ request('search') }}</span>"
+                    @if($posts->count() > 0)
+                        - {{ $posts->count() }} {{ Str::plural('post', $posts->count()) }} found
+                    @else
+                        - No posts found
+                    @endif
+                </p>
+            </div>
+        @endif
+        <!-- End -->
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-1 lg:grid-cols-1">
             @foreach($posts as $post)
