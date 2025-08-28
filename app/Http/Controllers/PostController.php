@@ -6,6 +6,8 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\User;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -46,6 +48,7 @@ class PostController extends Controller
     public function create() {
 
         $users = User::all();
+        Gate::authorize('create', Post::class);
         return view('posts.create', compact('users'));
     }
 
@@ -60,6 +63,11 @@ class PostController extends Controller
             'image' => 'nullable|string|max:255',
             'category' => 'nullable|string|max:255',
         ]);
+
+        // if(Gate::check('is-author')) {
+        //     $validatedData['user_id'] = auth()->user()->id;
+        // }
+
         //Store data into database.
         Post::create($validatedData);
 
@@ -70,6 +78,9 @@ class PostController extends Controller
     public function edit($slug) {
 
         $post = Post::where('slug', $slug)->firstOrFail();
+
+        Gate::authorize('update', $post);
+
         $users = User::all();
 
         return view('posts.edit', [
@@ -85,6 +96,7 @@ class PostController extends Controller
         //dd($slug, $request->all());
 
         $post = Post::where('slug', $slug)->first();
+        Gate::authorize('update', $post);
 
         $validatedData = $request->validate([
             'slug' => 'required|string|max:255',
@@ -95,6 +107,11 @@ class PostController extends Controller
             'category' => 'nullable|string|max:255',
         ]);
 
+        if(Gate::check('is-author')) {
+            // $validatedData['user_id'] = auth()->user()->id;
+            $validatedData['user_id'] = Auth::id();
+        }
+
         $post->update($validatedData);
 
         return redirect()->route('posts.show', $post->slug)->with('success', 'Post updated successfully!');
@@ -102,6 +119,7 @@ class PostController extends Controller
 
     public function destroy($slug) {
         $post = Post::where('slug', $slug)->firstOrFail();
+        Gate::authorize('delete', $post);
         $post->delete();
 
         return redirect()->route('posts.index')->with('success', 'Post deleted successfully!');

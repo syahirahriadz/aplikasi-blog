@@ -43,6 +43,17 @@
                 </a>
                 </li>
 
+                @can('is-admin')
+                    <li>
+                    <a
+                        class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75 {{ request()->routeIs('admin.dashboard.index') ? 'text-red-900 font-bold' : '' }}"
+                        href="{{ route('admin.dashboard.index') }}"
+                    >
+                        Dashboard
+                    </a>
+                    </li>
+                @endcan
+
                 <li>
                 <a
                     class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75 {{ request()->routeIs('contact') ? 'text-red-900 font-bold' : '' }}"

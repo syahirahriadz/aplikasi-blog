@@ -21,7 +21,7 @@
             <!-- Email Field -->
             <div class="rounded-md shadow-sm -space-y-px">
                 <div>
-                    <label for="email" class="sr-only">Alamat Email</label>
+                    <label for="email" class="sr-only">Email Address</label>
                     <input
                         id="email"
                         name="email"
@@ -29,7 +29,7 @@
                         autocomplete="email"
                         required
                         class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm @error('email') border-red-300 @enderror"
-                        placeholder="Alamat Email"
+                        placeholder="Email Address"
                         value="{{ old('email') }}"
                     >
                     @error('email')
@@ -39,7 +39,7 @@
 
                 <!-- Password Field -->
                 <div>
-                    <label for="password" class="sr-only">Kata Sandi</label>
+                    <label for="password" class="sr-only">Password</label>
                     <input
                         id="password"
                         name="password"
@@ -47,7 +47,7 @@
                         autocomplete="current-password"
                         required
                         class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm @error('password') border-red-300 @enderror"
-                        placeholder="Kata Sandi"
+                        placeholder="Password"
                     >
                     @error('password')
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -71,7 +71,7 @@
 
                 <div class="text-sm">
                     <a href="#" class="font-medium text-blue-600 hover:text-blue-500">
-                        Lupa kata sandi?
+                        Forget password?
                     </a>
                 </div>
             </div>

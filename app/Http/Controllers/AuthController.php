@@ -42,11 +42,13 @@ class Authcontroller extends Controller
     {
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'required|string',
         ]);
 
         if (!Auth::attempt($request->only('email', 'password'))) {
-            return back()->with('error', 'Invalid login');
+            return back()->withErrors([
+                'email' => 'The provided credentials do not match our records.'
+            ]);
         }
 
         return redirect()->route('welcome');

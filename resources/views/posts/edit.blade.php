@@ -51,6 +51,8 @@
                                 name="user_id"
                                 id="user_id"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm @error('user_id') border-red-300 @enderror"
+                                @can('is-author') disabled @endcan
+
                             >
                                 <option value="">Select an author (optional)</option>
                                 @foreach($users as $user)

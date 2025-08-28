@@ -30,25 +30,29 @@
 
                     <div class="flex gap-3">
 
-                        <a href="{{ route('posts.edit', $post->slug) }}" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 text-gray-500 hover:border-teal-600 hover:text-teal-600 focus:outline-hidden focus:border-teal-600 focus:text-teal-600 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:text-neutral-400 dark:hover:text-teal-500 dark:hover:border-teal-600 dark:focus:text-teal-500 dark:focus:border-teal-600">
-                            <svg class="w-6 h-6 text-white-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
-                            </svg>
-                            Edit
-                        </a>
-
-                        <form action="{{ route('posts.destroy', $post['slug']) }}" method="POST" class="inline-block"
-                                onsubmit="return confirm('Are you sure you want to delete this post? This action cannot be undone.')">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit"
-                                    class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-red-600 text-white hover:bg-red-700 focus:outline-hidden focus:bg-red-700 disabled:opacity-50 disabled:pointer-events-none">
-                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                        @can('update', $post)
+                            <a href="{{ route('posts.edit', $post->slug) }}" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 text-gray-500 hover:border-teal-600 hover:text-teal-600 focus:outline-hidden focus:border-teal-600 focus:text-teal-600 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:text-neutral-400 dark:hover:text-teal-500 dark:hover:border-teal-600 dark:focus:text-teal-500 dark:focus:border-teal-600">
+                                <svg class="w-6 h-6 text-white-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
                                 </svg>
-                                Delete
-                            </button>
-                        </form>
+                                Edit
+                            </a>
+                        @endcan
+
+                        @can('delete', $post)
+                            <form action="{{ route('posts.destroy', $post['slug']) }}" method="POST" class="inline-block"
+                                    onsubmit="return confirm('Are you sure you want to delete this post? This action cannot be undone.')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                        class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-red-600 text-white hover:bg-red-700 focus:outline-hidden focus:bg-red-700 disabled:opacity-50 disabled:pointer-events-none">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                    </svg>
+                                    Delete
+                                </button>
+                            </form>
+                        @endcan
                     </div>
                 </div> {{-- End button --}}
 
