@@ -69,10 +69,37 @@
         <div class="flex items-center gap-4">
             <div class="sm:flex sm:gap-4">
                 @auth
-                    <span class="text-sm text-gray-600">Hello, {{ Auth::user()->name }}</span>
+                    {{-- <span class="text-sm text-gray-600">Hello, {{ Auth::user()->name }}</span>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Log Keluar</button>
+                    </form> --}}
+
+                    <div class="relative" x-data="{ open: false }">
+                        <!-- Button -->
+                        <button @click="open = !open" class="flex items-center px-4 py-2 text-sm text-gray-600 hover:text-gray-900">
+                            <span class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75">Hello, {{ Auth::user()->name }}</span>
+                            <svg class="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+
+                        <!-- Dropdown -->
+                        <div x-show="open" @click.outside="open = false"
+                            x-transition
+                            class="absolute right-0 mt-2 w-48 rounded-md bg-white shadow-lg ring-1 ring-black/5 z-50">
+
+                            <a href="{{ route('profile.show') }}"
+                            class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100">
+                            Profile
+                            </a>
+                        </div>
+                    </div>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="text-sm px-4 py-2 text-red-600 hover:text-red-700 transition-colors">Log Keluar</button>
                     </form>
                 @else
                     <a

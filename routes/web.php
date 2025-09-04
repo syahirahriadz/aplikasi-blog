@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', [
     \App\Http\Controllers\HomeController::class,
@@ -123,3 +124,47 @@ Route::post('logout', [
     \App\Http\Controllers\Authcontroller::class,
     'logout'
 ])->name('logout');
+
+Route::get('forget', [
+    \App\Http\Controllers\AuthController::class,
+    'showLogin'
+])->name('forget');
+
+// Route::get('forgot-password', [
+//     PasswordResetLinkController::class,
+//     'create'
+// ])->name('password.request');
+
+// Route::post('forgot-password', [
+//     PasswordResetLinkController::class,
+//     'store'
+// ])->name('password.email');
+
+// Route::get('reset-password/{token}', [
+//     NewPasswordController::class,
+//     'create'
+// ])->name('password.reset');
+
+// Route::post('reset-password', [
+//     NewPasswordController::class,
+//     'store'
+// ])->name('password.update');
+
+//profile route
+// Route::middleware('auth')->group(function () {
+
+    Route::get('profile', [
+        \App\Http\Controllers\ProfileController::class,
+        'show'
+    ])->name('profile.show');
+
+    Route::get('profile/edit', [
+        \App\Http\Controllers\ProfileController::class,
+        'edit'
+    ])->name('profile.edit');
+
+    Route::put('profile', [
+        \App\Http\Controllers\ProfileController::class,
+        'update'
+    ])->name('profile.update');
+// });

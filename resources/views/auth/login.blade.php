@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="text-sm">
-                    <a href="#" class="font-medium text-blue-600 hover:text-blue-500">
+                    <a href="{{ route('forget') }}" class="font-medium text-blue-600 hover:text-blue-500">
                         Forget password?
                     </a>
                 </div>

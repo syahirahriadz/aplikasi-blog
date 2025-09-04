@@ -14,7 +14,7 @@ class PostPolicy
      */
     public function viewAny(User $user): bool
     {
-        return False;
+        return true;
     }
 
     /**
@@ -22,7 +22,7 @@ class PostPolicy
      */
     public function view(User $user, Post $post): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -30,7 +30,8 @@ class PostPolicy
      */
     public function create(User $user): bool
     {
-        return Auth::user()->id !== null;
+        // return Auth::user()->id !== null;
+        return $user->hasAnyRole(['admin', 'author']);
     }
 
     /**
@@ -38,8 +39,13 @@ class PostPolicy
      */
     public function update(User $user, Post $post): bool
     {
-        return $user?->role === 'admin' ||
-                        ($user->role === 'author' && $post->user_id === $user->id);
+        // Admin can update any post
+        if ($user->hasRole('admin')) {
+            return true;
+        }
+
+        // Authors can only update their own posts
+        return $user->hasRole('author') && $post->user_id === $user->id;
     }
 
     /**
@@ -47,8 +53,13 @@ class PostPolicy
      */
     public function delete(User $user, Post $post): bool
     {
-        return $user?->role === 'admin' ||
-                        ($user->role === 'author' && $post->user_id === $user->id);
+        // Admin can delete any post
+        if ($user->hasRole('admin')) {
+            return true;
+        }
+
+        // Authors can only delete their own posts
+        return $user->hasRole('author') && $post->user_id === $user->id;
     }
 
     /**
@@ -56,7 +67,8 @@ class PostPolicy
      */
     public function restore(User $user, Post $post): bool
     {
-        return false;
+        // Only admins can restore posts
+        return $user->hasRole('admin');
     }
 
     /**
@@ -64,6 +76,30 @@ class PostPolicy
      */
     public function forceDelete(User $user, Post $post): bool
     {
-        return false;
+        // Only admins can permanently delete posts
+        return $user->hasRole('admin');
+    }
+
+    /**
+     * Determine whether the user can manage posts (admin dashboard).
+     */
+    public function manage(User $user): bool
+    {
+        // Only admins can access post management features
+        return $user->hasRole('admin');
+    }
+
+    /**
+     * Determine whether the user can publish/unpublish posts.
+     */
+    public function publish(User $user, Post $post): bool
+    {
+        // Admin can publish/unpublish any post
+        if ($user->hasRole('admin')) {
+            return true;
+        }
+
+        // Authors can publish/unpublish their own posts
+        return $user->hasRole('author') && $post->user_id === $user->id;
     }
 }
